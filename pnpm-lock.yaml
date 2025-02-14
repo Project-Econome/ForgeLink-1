@@ -18,6 +18,9 @@ importers:
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
+      discord.js:
+        specifier: ^14.18.0
+        version: 14.18.0
       shoukaku:
         specifier: ^4.1.1
         version: 4.1.1
