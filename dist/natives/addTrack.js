@@ -26,8 +26,16 @@ exports.default = new forgescript_1.NativeFunction({
             player.queue.add(result.tracks[0]);
         if (!player.playing && !player.paused)
             player.play();
-        return this.success(result.type === "PLAYLIST"
-            ? `Queued ${result.tracks.length} from ${result.playlistName}`
-            : `Queued ${result.tracks[0].title}`);
+        return this.success(JSON.stringify({
+            status: "success",
+            type: result.type,
+            message: result.type === "PLAYLIST"
+                ? `Queued ${result.tracks.length} from ${result.playlistName}`
+                : `Queued ${result.tracks[0].title}`,
+            playlistName: result.type === "PLAYLIST" ? result.playlistName : null,
+            trackCount: result.type === "PLAYLIST" ? result.tracks.length : 1,
+            trackTitle: result.type !== "PLAYLIST" ? result.tracks[0].title : null,
+            trackAuthor: result.type !== "PLAYLIST" ? result.tracks[0].author : null
+        }, null, 2));
     }
 });
