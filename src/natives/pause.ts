@@ -18,7 +18,7 @@ export default new NativeFunction({
         const player = kazagumo.getPlayer(guild.id); 
 if (!player) return this.customError("No player found!");
 
-await player.pause
+await player.pause(true)
 
 return this.success();
     }
