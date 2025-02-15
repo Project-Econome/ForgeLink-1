@@ -33,8 +33,8 @@ class ForgeLink extends forgescript_1.ForgeExtension {
         forgescript_1.FunctionManager.load('ForgeLink', (0, path_1.join)(__dirname, '../../natives'));
         forgescript_1.EventManager.load('kazagumoCommands', (0, path_1.join)(__dirname, '../../events/kazagumo'));
         forgescript_1.EventManager.load('shoukakuCommands', (0, path_1.join)(__dirname, '../../events/shoukaku'));
-        client.events.load('kazagumoCommands', this.options.kazagumoEvents ?? []);
-        client.events.load('shoukakuCommands', this.options.shoukakuEvents ?? []);
+        client.events.load('kazagumoCommands', this.options.events?.kazagumo ?? []);
+        client.events.load('shoukakuCommands', this.options.events?.shoukaku ?? []);
     }
     get kazagumo() {
         return this.#e;

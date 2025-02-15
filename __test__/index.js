@@ -3,12 +3,10 @@ const { ForgeLink } = require('../dist')
 process.loadEnvFile()
 
 const lavalink = new ForgeLink({
-    kazagumoEvents: [
-        'playerStart'
-    ],
-    shoukakuEvents: [
-        'debug'
-    ],
+    events: {
+        kazagumo: ['playerStart'],
+        shoukaku: ['debug', 'ready']
+    },
     kazagumoOptions: {
         defaultSearchEngine: 'youtube'
     },
@@ -39,7 +37,7 @@ const client = new ForgeClient({
 client.commands.add({
     name: 'plai',
     type: 'messageCreate',
-    code: '$addTrack[$message]'
+    code: '$if[$hasPlayer[$guildID]==false;$createPlayer[$guildID;$voiceID[$guildID;$authorID];$channelID]]\n$addTrack[$guildID;$message]'
 })
 
 lavalink.commands.kazagumo.add({
@@ -49,7 +47,10 @@ lavalink.commands.kazagumo.add({
 
 lavalink.commands.shoukaku.add({
     type: 'debug',
-    code: '$log[$env[]]'
+    code: '$log[NODE "$env[name]" -> $env[info]]'
+},{
+    type: 'ready',
+    code: '$log[NODE "$env[name]" IS READY]'
 })
 
 client.login(process.env.TOKEN)
