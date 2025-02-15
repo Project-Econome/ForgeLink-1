@@ -10,7 +10,7 @@ export default new NativeFunction({
         Arg.requiredGuild('Guild ID', 'The ID of the guild'),
         Arg.requiredNumber('Index', 'The track index to fetch.')
     ],
-    output: ArgType.String,
+    output: ArgType.Json,
     execute: async function(ctx, [guild, index]) {
         const kazagumo = ctx.client.getExtension(ForgeLink, true).kazagumo
 

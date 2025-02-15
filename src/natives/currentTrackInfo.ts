@@ -12,7 +12,7 @@ export default new NativeFunction({
     args: [
         Arg.requiredGuild('Guild ID', 'The ID of the guild'),
     ],
-    output: ArgType.String,
+    output: ArgType.Json,
     execute: async function(ctx, [guild]) {
         const kazagumo = ctx.client.getExtension(ForgeLink, true).kazagumo
 
