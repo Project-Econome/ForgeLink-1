@@ -2,7 +2,7 @@ import { Arg, ArgType, NativeFunction } from '@tryforge/forgescript'
 import { ForgeLink } from '@structures/ForgeLink'
 
 export default new NativeFunction({
-    name: '$trackInfo',
+    name: '$trackInfoOf',
     description: 'Gets info on a track in a specific guild',
     brackets: true,
     unwrap: true,

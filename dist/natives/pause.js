@@ -13,7 +13,7 @@ exports.default = new forgescript_1.NativeFunction({
     output: forgescript_1.ArgType.String,
     execute: async function (ctx, [guild]) {
         const kazagumo = ctx.client.getExtension(ForgeLink_1.ForgeLink, true).kazagumo;
-        const player = kazagumo.getPlayer('guild');
+        const player = kazagumo.getPlayer(guild.id);
         if (!player)
             return this.customError("No player found!");
         await player.pause;

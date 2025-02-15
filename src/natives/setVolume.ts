@@ -22,7 +22,7 @@ export default new NativeFunction({
     execute: async function(ctx, [guild, volume]) {
         const kazagumo = ctx.client.getExtension(ForgeLink, true).kazagumo
 
-        const player = kazagumo.getPlayer('guild'); 
+        const player = kazagumo.getPlayer(guild.id); 
 if (!player) return this.customError("No player found!");
 
 await player.setVolume(volume)
