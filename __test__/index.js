@@ -6,6 +6,9 @@ const lavalink = new ForgeLink({
     kazagumoEvents: [
         'playerStart'
     ],
+    shoukakuEvents: [
+        'debug'
+    ],
     kazagumoOptions: {
         defaultSearchEngine: 'youtube'
     },
@@ -42,6 +45,11 @@ client.commands.add({
 lavalink.commands.kazagumo.add({
     type: 'playerStart',
     code: '$log[A track started playing now.]'
+})
+
+lavalink.commands.shoukaku.add({
+    type: 'debug',
+    code: '$log[$env[]]'
 })
 
 client.login(process.env.TOKEN)

@@ -6,10 +6,31 @@ import { ShoukkauCommandManager } from '@managers/ShoukakuCommandManager'
 import { join } from 'path'
 
 export interface ForgeLinkSetupOptions {
-    kazagumoEvents?: (keyof KazagumoEvents)[]
-    shoukakuEvents?: (keyof ShoukakuEvents)[]
+    /**
+     * The events the extension should listen to.
+     */
+    events?: {
+        kazagumo?: (keyof KazagumoEvents)[]
+        shoukaku?: (keyof ShoukakuEvents)[]
+    }
+    /**
+     * Kazagumo class options.
+     */
     kazagumoOptions: Omit<KazagumoOptions, 'send'>
+    /**
+     * The lavalink nodes to connect.
+     * @example
+     * nodes: [{
+     *     name: 'COCK MY BELOVED',
+     *     auth: 'youshallnotpass',
+     *     url: 'lava.botforge.fs:3250',
+     *     secure: false
+     * }]
+     */
     nodes: NodeOption[]
+    /**
+     * Shoukaku core options.
+     */
     shoukakuOptions?: ShoukakuOptions
 }
 
@@ -43,8 +64,8 @@ export class ForgeLink extends ForgeExtension {
         EventManager.load('kazagumoCommands', join(__dirname, '../../events/kazagumo'))
         EventManager.load('shoukakuCommands', join(__dirname, '../../events/shoukaku'))
 
-        client.events.load('kazagumoCommands', this.options.kazagumoEvents ?? [])
-        client.events.load('shoukakuCommands', this.options.shoukakuEvents ?? [])
+        client.events.load('kazagumoCommands', this.options.events?.kazagumo ?? [])
+        client.events.load('shoukakuCommands', this.options.events?.shoukaku ?? [])
     }
     get kazagumo(): Kazagumo {
         return this.#e
