@@ -39,7 +39,8 @@ export default new NativeFunction({
         playlistName: result.type === "PLAYLIST" ? result.playlistName : null,
         trackCount: result.type === "PLAYLIST" ? result.tracks.length : 1,
         trackTitle: result.type !== "PLAYLIST" ? result.tracks[0].title : null,
-        trackAuthor: result.type !== "PLAYLIST" ? result.tracks[0].author : null
+        trackAuthor: result.type !== "PLAYLIST" ? result.tracks[0].author : null,
+        trackImage: result.type !== "PLAYLIST" ? result.tracks[0].thumbnail : null
     }, null, 2
             ) );
     }
