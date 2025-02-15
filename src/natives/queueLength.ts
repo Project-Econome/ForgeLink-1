@@ -3,8 +3,8 @@ import type { BaseChannel, VoiceBasedChannel } from 'discord.js'
 import { ForgeLink } from '@structures/ForgeLink'
 
 export default new NativeFunction({
-    name: '$queue',
-    description: 'displays the queue tracks in a specific guild',
+    name: '$queueLength',
+    description: 'displays the queue length in a specific guild',
     brackets: true,
     unwrap: true,
     args: [
@@ -20,6 +20,6 @@ if (!player) return this.customError("No player found!");
 
             
         
-        return this.successJSON(player.queue.entries());
+        return this.successJSON(player.queue.totalSize.toFixed());
     }
 })
