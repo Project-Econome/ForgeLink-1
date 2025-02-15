@@ -36,7 +36,7 @@ const client = new ForgeClient({
 client.commands.add({
     name: 'plai',
     type: 'messageCreate',
-    code: '$playTrack[$message]'
+    code: '$addTrack[$message]'
 })
 
 lavalink.commands.kazagumo.add({
