@@ -4,7 +4,7 @@ import { ForgeLink } from '@structures/ForgeLink'
 
 
 export default new NativeFunction({
-    name: '$skipTrack',
+    name: '$previousTrack',
     description: 'goes to previous track',
     brackets: true,
     unwrap: true,
