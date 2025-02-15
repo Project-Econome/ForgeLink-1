@@ -5,7 +5,7 @@ import { KazagumoTrack } from 'kazagumo'
 import { info } from 'console'
 
 export default new NativeFunction({
-    name: '$currentTrackInfo',
+    name: '$trackInfo',
     description: 'Gets info on a track in a specific guild',
     brackets: true,
     unwrap: true,
