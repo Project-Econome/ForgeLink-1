@@ -20,6 +20,6 @@ if (!player) return this.customError("No player found!");
 
  
 
-return this.success(player.skip);
+return this.success(player.skip());
     }
 })
