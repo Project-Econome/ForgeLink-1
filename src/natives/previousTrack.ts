@@ -18,7 +18,10 @@ export default new NativeFunction({
         const player = kazagumo.getPlayer(guild.id); 
 if (!player) return this.customError("No player found!");
 
-await player.queue.previous
+const previous = await player.getPrevious();
+
+if (!previous) return this.success("No previous track found!");
+player.play(player.getPrevious(true))
 
 return this.success();
     }
